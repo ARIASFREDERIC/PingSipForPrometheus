@@ -1,0 +1,25 @@
+#
+# ARIAS frederic <farias@cyber-neurones.org>
+#
+
+version: '3.2'
+
+#volumes:
+#  panel-logs: 
+#    external: true
+
+services:
+    panel:
+       build:
+          context: ./Panel/
+          dockerfile:  ./Dockerfile
+       ports:
+         - "9069:9069"
+       image: panel:last
+       hostname: "PingSip"
+       environment:
+          PROMETHEUS_PORT: 9069 
+          INTERFACE: eth0  
+          USERID: ping  
+          TASKS: "Tasks.{{.Service.Name}}"
+          ID: "{{.Node.ID}}"
