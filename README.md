@@ -138,9 +138,41 @@ Connection closed by foreign host
 
 ```
 
+##### Version 3
+
+```
+$ telnet 127.0.0.1 9069
+Trying 127.0.0.1...
+Connected to 127.0.0.1.
+Escape character is '^]'.
+
+HTTP/1.1 200 OK
+
+# HELP pingsip_status PINGSIP status 
+# TYPE pingsip_status counter
+pingsip_status{localip="165.195.194.206",publicip="XXXXX",localport="54701",publicport="12986",domain="XXXXX",user="ping"} 0 
+# HELP pingsip_success PINGSIP sucess 
+# TYPE pingsip_success counter
+pingsip_success{localip="165.195.194.206",publicip="XXXXX",localport="54701",publicport="12986",domain="XXXX",user="ping"} 1 
+# HELP pingsip_failed PINGSIP failed 
+# TYPE pingsip_failed counter
+pingsip_failed{localip="165.195.194.206",publicip="XXXX",localport="54701",publicport="12986",domain="XXXX",user="ping"} 1 
+# HELP pingsip_duration PINGSIP duration 
+# TYPE pingsip_duration gauge
+pingsip_duration{domain="XXXX"} 0.04541 
+# HELP pingsip_wait_prometheus PINGSIP wait prometheus 
+# TYPE pingsip_wait_prometheus gauge
+pingsip_wait_prometheus{domain="XXXX"} 8.84670 
+
+Connection closed by foreign host
+
+```
+
 ### Configuration for Prometheus
 
 ### Configuration for Grafana
+
+
 
 # Author
 
